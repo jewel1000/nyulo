@@ -1,0 +1,14 @@
+{
+  "name": "nyulo-deploy",
+  "private": true,
+  "type": "module",
+  "description": "Deployment tooling for Nyulo Interior (Namecheap cPanel over SFTP)",
+  "scripts": {
+    "deploy": "node deploy.mjs",
+    "deploy:frontend": "node deploy.mjs frontend",
+    "deploy:backend": "node deploy.mjs backend"
+  },
+  "dependencies": {
+    "ssh2": "^1.16.0"
+  }
+}

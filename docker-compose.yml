@@ -1,0 +1,47 @@
+# One-command deployment for a VPS: database, API and web server.
+#   docker compose up -d --build
+#
+# Put the real secrets in a .env file next to this one:
+#   MONGO_ROOT_PASSWORD=...
+#   ADMIN_API_KEY=...
+
+services:
+  mongo:
+    image: mongo:7
+    restart: unless-stopped
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: nyulo
+      MONGO_INITDB_ROOT_PASSWORD: ${MONGO_ROOT_PASSWORD}
+    volumes:
+      - mongo-data:/data/db
+    healthcheck:
+      test: ['CMD', 'mongosh', '--eval', "db.adminCommand('ping')"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  api:
+    build: ./BackEnd
+    restart: unless-stopped
+    depends_on:
+      mongo:
+        condition: service_healthy
+    environment:
+      NODE_ENV: production
+      PORT: 5000
+      MONGODB_URI: mongodb://nyulo:${MONGO_ROOT_PASSWORD}@mongo:27017/nyulo_interior?authSource=admin
+      CLIENT_URL: https://nyulo.com,https://www.nyulo.com
+      ADMIN_API_KEY: ${ADMIN_API_KEY}
+    expose:
+      - '5000'
+
+  web:
+    build: ./FrontEnd
+    restart: unless-stopped
+    depends_on:
+      - api
+    ports:
+      - '80:80'
+
+volumes:
+  mongo-data:
