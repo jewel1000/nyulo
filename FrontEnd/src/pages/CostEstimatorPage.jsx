@@ -24,7 +24,7 @@ export default function CostEstimatorPage() {
             {result ? (
               <EstimateResult quote={result.quote} formInput={result.formInput} />
             ) : (
-              <div className="flex h-full min-h-72 flex-col items-center justify-center gap-3 rounded-2xl border border-dashed border-white/10 p-10 text-center">
+              <div className="flex h-full min-h-72 flex-col items-center justify-center gap-3 rounded-2xl border border-dashed border-black/15 p-10 text-center">
                 <p className="font-display text-2xl font-semibold text-ink-400">Your estimate appears here</p>
                 <p className="max-w-sm text-sm text-ink-400">
                   Fill in the form to see a budget range with a full cost breakdown — materials, labor,

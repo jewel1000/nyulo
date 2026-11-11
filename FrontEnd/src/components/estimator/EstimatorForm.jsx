@@ -30,7 +30,7 @@ export default function EstimatorForm({ onResult }) {
   if (!config) return null;
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-5 rounded-2xl border border-white/5 bg-ink-900 p-7 sm:p-9">
+    <form onSubmit={handleSubmit} className="space-y-5 rounded-2xl border border-black/10 bg-ink-900 p-7 sm:p-9">
       <Select label="Space Type" required value={form.spaceType} onChange={update('spaceType')}>
         {config.spaceTypes.map((space) => (
           <option key={space.key} value={space.key}>{space.label}</option>
@@ -50,7 +50,7 @@ export default function EstimatorForm({ onResult }) {
               className={`rounded-xl border p-4 text-left transition ${
                 form.packageKey === pkg.key
                   ? 'border-brand-500 bg-brand-500/10'
-                  : 'border-white/10 hover:border-brand-500/40'
+                  : 'border-black/15 hover:border-brand-500/40'
               }`}
             >
               <p className="font-display text-lg font-semibold text-cream-50">{pkg.label}</p>
@@ -73,7 +73,7 @@ export default function EstimatorForm({ onResult }) {
       />
 
       {status.state === 'error' && (
-        <p className="rounded-xl border border-red-500/30 bg-red-500/10 px-4 py-3 text-sm text-red-300">
+        <p className="rounded-xl border border-red-500/30 bg-red-500/10 px-4 py-3 text-sm text-red-700">
           {status.message}
         </p>
       )}

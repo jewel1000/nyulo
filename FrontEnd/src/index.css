@@ -5,26 +5,26 @@
   --font-sans: 'Manrope', ui-sans-serif, system-ui, sans-serif;
   --font-display: 'Playfair Display', Georgia, serif;
 
-  /* Warm dark neutrals */
-  --color-ink-950: #0c0b09;
-  --color-ink-900: #14120e;
-  --color-ink-800: #1d1a14;
-  --color-ink-700: #2a261d;
-  --color-ink-600: #403a2d;
-  --color-ink-400: #8a8170;
-  --color-ink-300: #aaa08c;
+  /* Surfaces: page, cards, borders, muted text (light theme) */
+  --color-ink-950: #ffffff;
+  --color-ink-900: #f8f6f1;
+  --color-ink-800: #f0ede5;
+  --color-ink-700: #ddd7c9;
+  --color-ink-600: #cdc6b5;
+  --color-ink-400: #7b7466;
+  --color-ink-300: #5d574b;
 
-  /* Brand gold */
-  --color-brand-300: #e6cd94;
-  --color-brand-400: #d8b56a;
-  --color-brand-500: #c9a24b;
-  --color-brand-600: #ab8534;
-  --color-brand-700: #8a6a28;
+  /* Brand gold, darkened so it stays readable on white */
+  --color-brand-300: #a8842f;
+  --color-brand-400: #916c1c;
+  --color-brand-500: #8a6718;
+  --color-brand-600: #755612;
+  --color-brand-700: #5f450d;
 
-  /* Warm light */
-  --color-cream-50: #faf7f0;
-  --color-cream-100: #f3eddd;
-  --color-cream-200: #e9dfc6;
+  /* Text colours */
+  --color-cream-50: #1c1a15;
+  --color-cream-100: #2f2b23;
+  --color-cream-200: #453f33;
 }
 
 body {

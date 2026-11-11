@@ -1,5 +1,5 @@
 const baseClasses =
-  'w-full rounded-xl border border-white/10 bg-ink-950 px-4 py-3 text-sm text-cream-50 placeholder:text-ink-400 outline-none transition focus:border-brand-500';
+  'w-full rounded-xl border border-black/15 bg-ink-950 px-4 py-3 text-sm text-cream-50 placeholder:text-ink-400 outline-none transition focus:border-brand-500';
 
 export function TextInput({ label, ...props }) {
   return (

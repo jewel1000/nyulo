@@ -6,7 +6,7 @@ export default function BlogCard({ blog }) {
   return (
     <Link
       to={`/journal/${blog.slug}`}
-      className="group flex h-full flex-col overflow-hidden rounded-2xl border border-white/5 bg-ink-900 transition hover:border-brand-500/30"
+      className="group flex h-full flex-col overflow-hidden rounded-2xl border border-black/10 bg-ink-900 transition hover:border-brand-500/30"
     >
       <div className="aspect-[16/10] overflow-hidden">
         <img
@@ -32,7 +32,7 @@ export default function BlogCard({ blog }) {
           {blog.tags?.map((tag) => (
             <span
               key={tag}
-              className="rounded-full border border-white/10 px-2.5 py-0.5 text-[11px] text-ink-300"
+              className="rounded-full border border-black/15 px-2.5 py-0.5 text-[11px] text-ink-300"
             >
               {tag}
             </span>

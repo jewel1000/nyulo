@@ -61,7 +61,7 @@ export default function ContactForm() {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-5 rounded-2xl border border-white/5 bg-ink-900 p-7 sm:p-9">
+    <form onSubmit={handleSubmit} className="space-y-5 rounded-2xl border border-black/10 bg-ink-900 p-7 sm:p-9">
       <div className="grid gap-5 sm:grid-cols-2">
         <TextInput label="Your Name" required placeholder="Full name" value={form.name} onChange={update('name')} />
         <TextInput label="Phone" required placeholder="+880 1XXX-XXXXXX" value={form.phone} onChange={update('phone')} />
@@ -83,7 +83,7 @@ export default function ContactForm() {
         onChange={update('message')}
       />
       {status.state === 'error' && (
-        <p className="rounded-xl border border-red-500/30 bg-red-500/10 px-4 py-3 text-sm text-red-300">
+        <p className="rounded-xl border border-red-500/30 bg-red-500/10 px-4 py-3 text-sm text-red-700">
           {status.message}
         </p>
       )}

@@ -10,7 +10,7 @@ import { fetchProjectBySlug } from '../api/projects.api.js';
 
 function Fact({ icon: Icon, label, value }) {
   return (
-    <div className="rounded-xl border border-white/5 bg-ink-900 p-4">
+    <div className="rounded-xl border border-black/10 bg-ink-900 p-4">
       <p className="flex items-center gap-2 text-[11px] font-semibold uppercase tracking-wider text-ink-400">
         <Icon size={13} className="text-brand-400" /> {label}
       </p>
@@ -63,7 +63,7 @@ export default function ProjectDetailPage() {
                       src={image}
                       alt={`${project.title} — view ${index + 1}`}
                       loading="lazy"
-                      className="w-full rounded-2xl border border-white/5 object-cover"
+                      className="w-full rounded-2xl border border-black/10 object-cover"
                     />
                   </Reveal>
                 ))}
@@ -81,7 +81,7 @@ export default function ProjectDetailPage() {
             </Reveal>
             {project.scope?.length > 0 && (
               <Reveal delay={100}>
-                <div className="rounded-2xl border border-white/5 bg-ink-900 p-7">
+                <div className="rounded-2xl border border-black/10 bg-ink-900 p-7">
                   <h2 className="font-display text-xl font-semibold text-cream-50">Scope of Work</h2>
                   <ul className="mt-5 space-y-3">
                     {project.scope.map((item) => (

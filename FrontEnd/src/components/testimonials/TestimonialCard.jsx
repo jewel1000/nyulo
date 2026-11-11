@@ -2,10 +2,10 @@ import { Star, Quote } from 'lucide-react';
 
 export default function TestimonialCard({ testimonial }) {
   return (
-    <article className="flex h-full flex-col rounded-2xl border border-white/5 bg-ink-900 p-6">
+    <article className="flex h-full flex-col rounded-2xl border border-black/10 bg-ink-900 p-6">
       <Quote size={24} className="text-brand-500/60" />
       <p className="mt-4 flex-1 text-sm leading-relaxed text-cream-100/90">“{testimonial.message}”</p>
-      <div className="mt-6 flex items-center gap-3 border-t border-white/5 pt-5">
+      <div className="mt-6 flex items-center gap-3 border-t border-black/10 pt-5">
         {testimonial.avatar && (
           <img
             src={testimonial.avatar}

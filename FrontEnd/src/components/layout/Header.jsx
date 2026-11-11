@@ -23,8 +23,8 @@ export default function Header() {
     <header
       className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${
         scrolled || mobileOpen
-          ? 'border-b border-white/5 bg-ink-950/95 backdrop-blur'
-          : 'bg-gradient-to-b from-ink-950/80 to-transparent'
+          ? 'border-b border-black/10 bg-ink-950/95 backdrop-blur'
+          : 'bg-ink-950/80 backdrop-blur'
       }`}
     >
       <div className="mx-auto flex h-18 max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
@@ -63,7 +63,7 @@ export default function Header() {
 
       {/* Mobile menu */}
       {mobileOpen && (
-        <nav className="border-t border-white/5 bg-ink-950/98 px-6 pb-8 pt-4 lg:hidden">
+        <nav className="border-t border-black/10 bg-ink-950/98 px-6 pb-8 pt-4 lg:hidden">
           <div className="flex flex-col gap-4">
             {NAV_LINKS.map((link) => (
               <NavLink

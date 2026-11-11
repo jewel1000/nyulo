@@ -51,7 +51,7 @@ export default function ServiceDetailPage() {
             ))}
           </Reveal>
           <Reveal delay={120}>
-            <div className="rounded-2xl border border-white/5 bg-ink-900 p-7">
+            <div className="rounded-2xl border border-black/10 bg-ink-900 p-7">
               <h2 className="font-display text-xl font-semibold text-cream-50">What’s included</h2>
               <ul className="mt-5 space-y-3">
                 {service.features?.map((feature) => (

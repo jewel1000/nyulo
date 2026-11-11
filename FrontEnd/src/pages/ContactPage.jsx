@@ -25,7 +25,7 @@ export default function ContactPage() {
           {/* Details */}
           <Reveal className="space-y-5">
             {DETAILS.map(({ icon: Icon, label, value, href }) => (
-              <div key={label} className="flex items-start gap-4 rounded-2xl border border-white/5 bg-ink-900 p-5">
+              <div key={label} className="flex items-start gap-4 rounded-2xl border border-black/10 bg-ink-900 p-5">
                 <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-brand-500/10 text-brand-400">
                   <Icon size={19} />
                 </div>
@@ -41,7 +41,7 @@ export default function ContactPage() {
                 </div>
               </div>
             ))}
-            <div className="overflow-hidden rounded-2xl border border-white/5">
+            <div className="overflow-hidden rounded-2xl border border-black/10">
               <iframe
                 title="Studio location"
                 src="https://www.google.com/maps?q=East+Kazipara,+Mirpur,+Dhaka&output=embed"

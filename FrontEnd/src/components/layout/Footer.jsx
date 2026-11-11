@@ -11,7 +11,7 @@ const SOCIALS = [
 
 export default function Footer() {
   return (
-    <footer className="border-t border-white/5 bg-ink-900">
+    <footer className="border-t border-black/10 bg-ink-900">
       <div className="mx-auto grid max-w-7xl gap-12 px-4 py-16 sm:px-6 md:grid-cols-2 lg:grid-cols-4 lg:px-8">
         {/* Brand */}
         <div>
@@ -30,7 +30,7 @@ export default function Footer() {
                 target="_blank"
                 rel="noreferrer"
                 aria-label={label}
-                className="rounded-full border border-white/10 p-2 text-ink-300 transition hover:border-brand-500 hover:text-brand-400"
+                className="rounded-full border border-black/15 p-2 text-ink-300 transition hover:border-brand-500 hover:text-brand-400"
               >
                 <Icon size={16} />
               </a>
@@ -89,7 +89,7 @@ export default function Footer() {
         </div>
       </div>
 
-      <div className="border-t border-white/5">
+      <div className="border-t border-black/10">
         <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-2 px-4 py-6 text-xs text-ink-400 sm:flex-row sm:px-6 lg:px-8">
           <p>© {new Date().getFullYear()} {COMPANY.name}. All rights reserved.</p>
           <p>{COMPANY.tagline} — Mirpur, Dhaka</p>

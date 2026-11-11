@@ -4,7 +4,7 @@ import Reveal from './Reveal.jsx';
 /** Shared banner for inner pages. */
 export default function PageHero({ eyebrow, title, subtitle }) {
   return (
-    <section className="relative overflow-hidden border-b border-white/5 bg-ink-900 pb-16 pt-36">
+    <section className="relative overflow-hidden border-b border-black/10 bg-ink-900 pb-16 pt-36">
       <div
         className="pointer-events-none absolute inset-0 opacity-20"
         style={{

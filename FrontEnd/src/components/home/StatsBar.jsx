@@ -16,8 +16,8 @@ function StatItem({ stat }) {
 
 export default function StatsBar() {
   return (
-    <section className="border-y border-white/5 bg-ink-900">
-      <div className="mx-auto grid max-w-7xl grid-cols-2 divide-x divide-white/5 px-4 sm:px-6 lg:grid-cols-4 lg:px-8">
+    <section className="border-y border-black/10 bg-ink-900">
+      <div className="mx-auto grid max-w-7xl grid-cols-2 divide-x divide-black/10 px-4 sm:px-6 lg:grid-cols-4 lg:px-8">
         {STATS.map((stat) => (
           <StatItem key={stat.label} stat={stat} />
         ))}

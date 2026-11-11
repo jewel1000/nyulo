@@ -46,7 +46,7 @@ export default function EstimateResult({ quote, formInput }) {
           at ~৳{formatBDT(quote.effectiveRatePerSqft)}/sqft
         </p>
 
-        <div className="mt-7 space-y-3 border-t border-white/10 pt-6">
+        <div className="mt-7 space-y-3 border-t border-black/15 pt-6">
           {Object.entries(quote.breakdown).map(([key, amount]) => (
             <div key={key} className="flex items-center justify-between text-sm">
               <span className="text-ink-300">{BREAKDOWN_LABELS[key] || key}</span>
@@ -67,7 +67,7 @@ export default function EstimateResult({ quote, formInput }) {
           <p className="max-w-sm text-sm text-ink-300">{status.message}</p>
         </div>
       ) : (
-        <form onSubmit={handleSave} className="space-y-4 rounded-2xl border border-white/5 bg-ink-900 p-7">
+        <form onSubmit={handleSave} className="space-y-4 rounded-2xl border border-black/10 bg-ink-900 p-7">
           <h3 className="font-display text-xl font-semibold text-cream-50">
             Want this estimate reviewed by a designer?
           </h3>
@@ -78,7 +78,7 @@ export default function EstimateResult({ quote, formInput }) {
           </div>
           <TextInput label="Email (optional)" type="email" placeholder="you@example.com" value={lead.email} onChange={update('email')} />
           {status.state === 'error' && (
-            <p className="rounded-xl border border-red-500/30 bg-red-500/10 px-4 py-3 text-sm text-red-300">
+            <p className="rounded-xl border border-red-500/30 bg-red-500/10 px-4 py-3 text-sm text-red-700">
               {status.message}
             </p>
           )}

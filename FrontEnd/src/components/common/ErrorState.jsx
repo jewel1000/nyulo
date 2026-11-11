@@ -11,7 +11,7 @@ export default function ErrorState({ error, onRetry }) {
         <button
           type="button"
           onClick={onRetry}
-          className="rounded-full border border-white/15 px-5 py-2 text-sm text-cream-50 transition hover:border-brand-400 hover:text-brand-400"
+          className="rounded-full border border-black/20 px-5 py-2 text-sm text-cream-50 transition hover:border-brand-400 hover:text-brand-400"
         >
           Try again
         </button>

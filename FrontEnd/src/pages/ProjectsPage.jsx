@@ -35,7 +35,7 @@ export default function ProjectsPage() {
                 className={`rounded-full border px-5 py-2 text-sm font-medium transition ${
                   category === item
                     ? 'border-brand-500 bg-brand-500 text-ink-950'
-                    : 'border-white/10 text-ink-300 hover:border-brand-500/50 hover:text-cream-50'
+                    : 'border-black/15 text-ink-300 hover:border-brand-500/50 hover:text-cream-50'
                 }`}
               >
                 {item}

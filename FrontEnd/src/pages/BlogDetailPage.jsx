@@ -37,13 +37,13 @@ export default function BlogDetailPage() {
             {blog.title}
           </h1>
 
-          <div className="mt-6 flex flex-wrap items-center gap-5 border-b border-white/10 pb-8 text-xs text-ink-300">
+          <div className="mt-6 flex flex-wrap items-center gap-5 border-b border-black/15 pb-8 text-xs text-ink-300">
             <span className="flex items-center gap-1.5"><UserRound size={13} className="text-brand-400" /> {blog.author}</span>
             <span className="flex items-center gap-1.5"><CalendarDays size={13} className="text-brand-400" /> {formatDate(blog.publishedAt)}</span>
             <span className="flex items-center gap-1.5"><Clock size={13} className="text-brand-400" /> {blog.readTimeMinutes} min read</span>
           </div>
 
-          <img src={blog.coverImage} alt={blog.title} className="mt-10 w-full rounded-2xl border border-white/5 object-cover" />
+          <img src={blog.coverImage} alt={blog.title} className="mt-10 w-full rounded-2xl border border-black/10 object-cover" />
 
           <Reveal className="mt-10 space-y-6 text-base leading-[1.85] text-cream-100/85">
             {blog.content.split('\n\n').map((paragraph, index) => (

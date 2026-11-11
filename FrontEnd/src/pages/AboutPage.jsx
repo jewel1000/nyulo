@@ -74,7 +74,7 @@ export default function AboutPage() {
           <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {TEAM.map((member, index) => (
               <Reveal key={member.name} delay={index * 80}>
-                <div className="group overflow-hidden rounded-2xl border border-white/5 bg-ink-900">
+                <div className="group overflow-hidden rounded-2xl border border-black/10 bg-ink-900">
                   <div className="aspect-[4/5] overflow-hidden">
                     <img
                       src={member.photo}

@@ -14,14 +14,14 @@ export default function ProcessPage() {
       />
       <section className="py-24">
         <Container className="max-w-4xl">
-          <ol className="relative space-y-12 border-l border-white/10 pl-10">
+          <ol className="relative space-y-12 border-l border-black/15 pl-10">
             {PROCESS_STEPS.map((phase, index) => (
               <Reveal key={phase.step} delay={index * 60}>
                 <li className="relative">
                   <span className="absolute -left-[55px] flex h-8 w-8 items-center justify-center rounded-full bg-brand-500 text-xs font-bold text-ink-950">
                     {index + 1}
                   </span>
-                  <div className="rounded-2xl border border-white/5 bg-ink-900 p-7">
+                  <div className="rounded-2xl border border-black/10 bg-ink-900 p-7">
                     <div className="flex flex-wrap items-center justify-between gap-3">
                       <h2 className="font-display text-2xl font-semibold text-cream-50">{phase.title}</h2>
                       <span className="rounded-full border border-brand-500/30 px-3 py-1 text-[11px] font-semibold uppercase tracking-wider text-brand-400">
