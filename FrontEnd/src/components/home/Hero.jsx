@@ -56,15 +56,15 @@ export default function Hero() {
       <div className="pointer-events-none absolute inset-x-0 bottom-0 h-56 bg-gradient-to-t from-black/55 to-transparent" />
 
       <div className="relative mx-auto flex w-full max-w-7xl flex-col gap-5 px-4 pb-8 sm:px-6 lg:flex-row lg:items-end lg:justify-between lg:px-8 lg:pb-10">
-        {/* Copy card */}
-        <div className="max-w-xl rounded-3xl bg-ink-950/95 p-6 shadow-2xl backdrop-blur sm:p-9">
-          <p className="text-[11px] font-bold uppercase tracking-[0.28em] text-brand-400">
+        {/* Copy: a see-through panel with a faint border, so the photo stays visible */}
+        <div className="hero-copy max-w-xl rounded-3xl border border-white/40 bg-black/20 p-6 sm:p-9">
+          <p className="text-[11px] font-bold uppercase tracking-[0.28em] text-amber-200">
             Design &amp; Build Studio · Mirpur, Dhaka
           </p>
-          <h1 className="mt-4 font-display text-4xl font-semibold leading-[1.1] text-cream-50 sm:text-5xl">
-            Spaces That Feel Like <em className="italic text-brand-400">Home</em>
+          <h1 className="mt-4 font-display text-4xl font-semibold leading-[1.1] text-white sm:text-5xl">
+            Spaces That Feel Like <em className="italic text-amber-200">Home</em>
           </h1>
-          <p className="mt-4 text-sm leading-relaxed text-ink-300 sm:text-base">
+          <p className="mt-4 text-sm leading-relaxed text-white/90 sm:text-base">
             Thoughtful interiors for homes, offices and commercial spaces — planned around you,
             previewed in 3D and built end-to-end by one team since {COMPANY.founded}.
           </p>
@@ -72,7 +72,7 @@ export default function Hero() {
             <Button to="/work">
               See Our Work <ArrowRight size={16} />
             </Button>
-            <Button to="/contact" variant="outline">
+            <Button to="/contact" variant="outline" className="border-white/70! text-white! hover:border-white! hover:bg-white/15!">
               <Phone size={15} /> Book a Site Visit
             </Button>
           </div>
