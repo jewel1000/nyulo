@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { Menu, X, Calculator } from 'lucide-react';
 import { NAV_LINKS, COMPANY } from '../../constants/index.js';
+import Logo from '../common/Logo.jsx';
 
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
@@ -29,9 +30,7 @@ export default function Header() {
     >
       <div className="mx-auto flex h-18 max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
         <Link to="/" className="group flex items-center gap-2" onClick={() => setMobileOpen(false)}>
-          <span className="font-display text-2xl font-semibold tracking-tight text-cream-50">
-            Nyulo<span className="text-brand-400"> Interior</span>
-          </span>
+          <Logo />
         </Link>
 
         {/* Desktop nav */}

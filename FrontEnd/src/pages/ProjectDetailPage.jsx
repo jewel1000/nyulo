@@ -1,10 +1,12 @@
+import { useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { ArrowLeft, MapPin, Ruler, CalendarDays, User, CheckCircle2 } from 'lucide-react';
+import { ArrowLeft, MapPin, Ruler, CalendarDays, User, CheckCircle2, Expand, Images } from 'lucide-react';
 import Container from '../components/common/Container.jsx';
 import Reveal from '../components/common/Reveal.jsx';
 import Spinner from '../components/common/Spinner.jsx';
 import ErrorState from '../components/common/ErrorState.jsx';
 import Button from '../components/common/Button.jsx';
+import Lightbox from '../components/projects/Lightbox.jsx';
 import useFetch from '../hooks/useFetch.js';
 import { fetchProjectBySlug } from '../api/projects.api.js';
 
@@ -22,6 +24,7 @@ function Fact({ icon: Icon, label, value }) {
 export default function ProjectDetailPage() {
   const { slug } = useParams();
   const { data: project, loading, error, refetch } = useFetch(() => fetchProjectBySlug(slug), [slug]);
+  const [lightboxIndex, setLightboxIndex] = useState(null);
 
   if (loading) return <div className="pt-32"><Spinner /></div>;
   if (error) return <div className="pt-32"><ErrorState error={error} onRetry={refetch} /></div>;
@@ -56,18 +59,40 @@ export default function ProjectDetailPage() {
               ))}
             </Reveal>
             {project.images?.length > 0 && (
-              <div className="mt-12 grid gap-5 sm:grid-cols-2">
-                {project.images.map((image, index) => (
-                  <Reveal key={image} delay={index * 70} className={index === 0 ? 'sm:col-span-2' : ''}>
-                    <img
-                      src={image}
-                      alt={`${project.title} — view ${index + 1}`}
-                      loading="lazy"
-                      className="w-full rounded-2xl border border-black/10 object-cover"
-                    />
-                  </Reveal>
-                ))}
-              </div>
+              <>
+                <div className="mt-12 flex items-center justify-between">
+                  <h2 className="font-display text-2xl font-semibold text-cream-50">Photo Gallery</h2>
+                  <button
+                    type="button"
+                    onClick={() => setLightboxIndex(0)}
+                    className="flex items-center gap-2 rounded-full border border-black/15 px-4 py-2 text-xs font-semibold text-cream-50 transition hover:border-brand-500 hover:text-brand-400"
+                  >
+                    <Images size={14} /> View all {project.images.length} photos
+                  </button>
+                </div>
+                <div className="mt-5 grid gap-5 sm:grid-cols-2">
+                  {project.images.map((image, index) => (
+                    <Reveal key={image} delay={(index % 4) * 70} className={index === 0 ? 'sm:col-span-2' : ''}>
+                      <button
+                        type="button"
+                        onClick={() => setLightboxIndex(index)}
+                        aria-label={`Open photo ${index + 1} full screen`}
+                        className="group relative block w-full cursor-zoom-in overflow-hidden rounded-2xl border border-black/10"
+                      >
+                        <img
+                          src={image}
+                          alt={`${project.title} — view ${index + 1}`}
+                          loading="lazy"
+                          className={`w-full object-cover transition duration-500 group-hover:scale-105 ${index === 0 ? 'aspect-[16/10]' : 'aspect-[4/3]'}`}
+                        />
+                        <span className="absolute right-3 top-3 flex h-9 w-9 items-center justify-center rounded-full bg-ink-950/90 text-cream-50 opacity-0 shadow transition group-hover:opacity-100">
+                          <Expand size={15} />
+                        </span>
+                      </button>
+                    </Reveal>
+                  ))}
+                </div>
+              </>
             )}
           </div>
 
@@ -98,6 +123,15 @@ export default function ProjectDetailPage() {
           </div>
         </Container>
       </section>
+      {lightboxIndex !== null && (
+        <Lightbox
+          images={project.images}
+          index={lightboxIndex}
+          title={project.title}
+          onChange={setLightboxIndex}
+          onClose={() => setLightboxIndex(null)}
+        />
+      )}
     </>
   );
 }

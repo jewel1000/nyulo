@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { Facebook, Instagram, Linkedin, Youtube, Phone, Mail, MapPin } from 'lucide-react';
 import { COMPANY, NAV_LINKS } from '../../constants/index.js';
+import Logo from '../common/Logo.jsx';
 
 const SOCIALS = [
   { icon: Facebook, href: COMPANY.social.facebook, label: 'Facebook' },
@@ -15,9 +16,7 @@ export default function Footer() {
       <div className="mx-auto grid max-w-7xl gap-12 px-4 py-16 sm:px-6 md:grid-cols-2 lg:grid-cols-4 lg:px-8">
         {/* Brand */}
         <div>
-          <p className="font-display text-2xl font-semibold text-cream-50">
-            Nyulo<span className="text-brand-400"> Interior</span>
-          </p>
+          <Logo size={44} />
           <p className="mt-3 max-w-xs text-sm leading-relaxed text-ink-300">
             {COMPANY.tagline}. An interior design and build studio based in Mirpur, Dhaka —
             crafting homes and workplaces since {COMPANY.founded}.
