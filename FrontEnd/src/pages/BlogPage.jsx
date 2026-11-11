@@ -13,8 +13,8 @@ export default function BlogPage() {
   return (
     <>
       <PageHero
-        eyebrow="Latest Insights"
-        title="The Design Journal"
+        eyebrow="Journal"
+        title="Notes From the Studio"
         subtitle="Ideas, budgets and trends from our studio — practical guidance for your next project."
       />
       <section className="py-20">

@@ -21,8 +21,8 @@ export default function BlogDetailPage() {
     <>
       <article className="pb-20 pt-36">
         <Container className="max-w-3xl">
-          <Link to="/blog" className="mb-8 inline-flex items-center gap-2 text-sm text-ink-300 transition hover:text-brand-400">
-            <ArrowLeft size={15} /> All articles
+          <Link to="/journal" className="mb-8 inline-flex items-center gap-2 text-sm text-ink-300 transition hover:text-brand-400">
+            <ArrowLeft size={15} /> Back to the journal
           </Link>
 
           <div className="flex flex-wrap gap-2">

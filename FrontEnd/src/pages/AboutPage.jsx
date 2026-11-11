@@ -11,8 +11,8 @@ export default function AboutPage() {
   return (
     <>
       <PageHero
-        eyebrow="About Us"
-        title="The Studio Behind the Spaces"
+        eyebrow="About Nyulo"
+        title="A Small Studio That Builds What It Draws"
         subtitle={`Designing homes and workplaces across Bangladesh since ${COMPANY.founded}.`}
       />
 

@@ -17,8 +17,8 @@ export default function TestimonialsPage() {
   return (
     <>
       <PageHero
-        eyebrow="Client Testimonials"
-        title="In Their Own Words"
+        eyebrow="Reviews"
+        title="What Clients Tell Us"
         subtitle="Homeowners, restaurateurs and corporate teams on working with our studio."
       />
       <section className="py-20">

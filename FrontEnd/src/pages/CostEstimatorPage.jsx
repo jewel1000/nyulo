@@ -11,8 +11,8 @@ export default function CostEstimatorPage() {
   return (
     <>
       <PageHero
-        eyebrow="Cost Calculator"
-        title="Estimate Your Interior Budget"
+        eyebrow="Budget Planner"
+        title="How Much Will My Interior Cost?"
         subtitle="Pick your space type, package and area — get an instant, transparent budget range in seconds."
       />
       <section className="py-20">

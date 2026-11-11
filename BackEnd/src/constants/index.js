@@ -1,19 +1,20 @@
 export const PROJECT_CATEGORIES = [
   'Residential',
-  'Duplex & Triplex',
-  'Office',
-  'Commercial & Retail',
-  'Restaurant & Café',
+  'Penthouse & Duplex',
+  'Kitchen & Wardrobe',
+  'Workspace',
+  'Hospitality & Retail',
 ];
 
 export const CONTACT_STATUSES = ['new', 'contacted', 'closed'];
 
 export const SERVICE_INTERESTS = [
-  'Residential Interiors',
-  'Commercial & Office Interiors',
-  '3D Visualization',
-  'Building Design & Construction',
-  'Landscape Design',
+  'Home Interiors',
+  'Modular Kitchens & Wardrobes',
+  'Workspace Design',
+  'Restaurant & Retail Interiors',
+  'Custom Furniture',
+  'Renovation & Makeovers',
   'Other',
 ];
 

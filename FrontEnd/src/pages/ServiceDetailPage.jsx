@@ -62,7 +62,7 @@ export default function ServiceDetailPage() {
                 ))}
               </ul>
               <Button to="/contact" className="mt-7 w-full">
-                <Phone size={15} /> Free Consultation
+                <Phone size={15} /> Book a Site Visit
               </Button>
             </div>
           </Reveal>

@@ -19,9 +19,9 @@ export default function ProjectsPage() {
   return (
     <>
       <PageHero
-        eyebrow="Our Portfolio"
-        title="Projects That Speak for Themselves"
-        subtitle="Residential, commercial, office and hospitality interiors delivered turnkey across Dhaka."
+        eyebrow="Our Work"
+        title="Spaces We’ve Designed & Built"
+        subtitle="Filter by type to see homes, kitchens, offices and cafés we’ve completed around Dhaka."
       />
       <section className="py-20">
         <Container>

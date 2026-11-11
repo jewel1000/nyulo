@@ -42,11 +42,11 @@ export default function Header() {
             </NavLink>
           ))}
           <Link
-            to="/cost-estimator"
+            to="/budget-planner"
             className="flex items-center gap-2 rounded-full bg-brand-500 px-5 py-2.5 text-sm font-semibold text-ink-950 transition hover:bg-brand-400"
           >
             <Calculator size={16} />
-            Cost Calculator
+            Budget Planner
           </Link>
         </nav>
 
@@ -77,12 +77,12 @@ export default function Header() {
               </NavLink>
             ))}
             <Link
-              to="/cost-estimator"
+              to="/budget-planner"
               onClick={() => setMobileOpen(false)}
               className="mt-2 flex w-fit items-center gap-2 rounded-full bg-brand-500 px-5 py-2.5 text-sm font-semibold text-ink-950"
             >
               <Calculator size={16} />
-              Cost Calculator
+              Budget Planner
             </Link>
             <p className="mt-4 text-xs text-ink-400">{COMPANY.phone}</p>
           </div>

@@ -9,8 +9,8 @@ export default function CoreValues() {
     <section className="bg-ink-900/40 py-24">
       <Container>
         <SectionHeading
-          eyebrow="Why Choose Us"
-          title="Built on Four Core Values"
+          eyebrow="Why Nyulo"
+          title="What You Can Count On"
         />
         <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {CORE_VALUES.map((value, index) => {

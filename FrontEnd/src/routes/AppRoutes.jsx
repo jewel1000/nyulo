@@ -22,14 +22,14 @@ export default function AppRoutes() {
         <Route path="/about" element={<AboutPage />} />
         <Route path="/services" element={<ServicesPage />} />
         <Route path="/services/:slug" element={<ServiceDetailPage />} />
-        <Route path="/projects" element={<ProjectsPage />} />
-        <Route path="/projects/:slug" element={<ProjectDetailPage />} />
-        <Route path="/process" element={<ProcessPage />} />
-        <Route path="/testimonials" element={<TestimonialsPage />} />
-        <Route path="/blog" element={<BlogPage />} />
-        <Route path="/blog/:slug" element={<BlogDetailPage />} />
+        <Route path="/work" element={<ProjectsPage />} />
+        <Route path="/work/:slug" element={<ProjectDetailPage />} />
+        <Route path="/how-we-work" element={<ProcessPage />} />
+        <Route path="/reviews" element={<TestimonialsPage />} />
+        <Route path="/journal" element={<BlogPage />} />
+        <Route path="/journal/:slug" element={<BlogDetailPage />} />
         <Route path="/contact" element={<ContactPage />} />
-        <Route path="/cost-estimator" element={<CostEstimatorPage />} />
+        <Route path="/budget-planner" element={<CostEstimatorPage />} />
         <Route path="*" element={<NotFoundPage />} />
       </Route>
     </Routes>

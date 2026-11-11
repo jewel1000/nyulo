@@ -14,9 +14,9 @@ export default function ServicesPage() {
   return (
     <>
       <PageHero
-        eyebrow="Our Services"
-        title="Everything Your Space Needs"
-        subtitle="Five integrated services — design, visualization, construction and landscape — delivered by one accountable team."
+        eyebrow="What We Do"
+        title="Design, Make, Install"
+        subtitle="Six services, one team and one workshop — so what you approve is exactly what gets built."
       />
       <section className="py-24">
         <Container>

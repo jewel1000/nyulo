@@ -4,11 +4,12 @@ import { TextInput, TextArea, Select } from '../common/FormField.jsx';
 import { submitContact } from '../../api/contact.api.js';
 
 const SERVICE_OPTIONS = [
-  'Residential Interiors',
-  'Commercial & Office Interiors',
-  '3D Visualization',
-  'Building Design & Construction',
-  'Landscape Design',
+  'Home Interiors',
+  'Modular Kitchens & Wardrobes',
+  'Workspace Design',
+  'Restaurant & Retail Interiors',
+  'Custom Furniture',
+  'Renovation & Makeovers',
   'Other',
 ];
 
@@ -16,7 +17,7 @@ const INITIAL_FORM = {
   name: '',
   email: '',
   phone: '',
-  serviceInterest: 'Residential Interiors',
+  serviceInterest: 'Home Interiors',
   subject: '',
   message: '',
 };
@@ -67,7 +68,7 @@ export default function ContactForm() {
       </div>
       <div className="grid gap-5 sm:grid-cols-2">
         <TextInput label="Email" required type="email" placeholder="you@example.com" value={form.email} onChange={update('email')} />
-        <Select label="Service of Interest" value={form.serviceInterest} onChange={update('serviceInterest')}>
+        <Select label="What do you need?" value={form.serviceInterest} onChange={update('serviceInterest')}>
           {SERVICE_OPTIONS.map((option) => (
             <option key={option} value={option}>{option}</option>
           ))}

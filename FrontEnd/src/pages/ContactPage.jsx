@@ -16,9 +16,9 @@ export default function ContactPage() {
   return (
     <>
       <PageHero
-        eyebrow="Contact Us"
-        title="Let’s Talk About Your Space"
-        subtitle="Book a free consultation — at our studio, your site, or over a call. We reply within one business day."
+        eyebrow="Get in Touch"
+        title="Visit, Call or Write to Us"
+        subtitle="Drop by our Mirpur studio, call us, or send a message below — we usually reply the same day."
       />
       <section className="py-20">
         <Container className="grid gap-12 lg:grid-cols-[1fr_1.4fr]">

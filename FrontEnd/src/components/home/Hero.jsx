@@ -38,7 +38,7 @@ export default function Hero() {
       {/* Content */}
       <div className="relative mx-auto w-full max-w-7xl px-4 pt-24 sm:px-6 lg:px-8">
         <p className="text-xs font-bold uppercase tracking-[0.3em] text-brand-400">
-          Interior Design Studio · Dhaka
+          Design &amp; Build Studio · Mirpur, Dhaka
         </p>
         <h1 className="mt-5 max-w-3xl font-display text-5xl font-semibold leading-[1.08] text-cream-50 sm:text-6xl lg:text-7xl">
           Spaces That Feel<br />
@@ -50,11 +50,11 @@ export default function Hero() {
           previewed in 3D and built end-to-end by one team since {COMPANY.founded}.
         </p>
         <div className="mt-9 flex flex-wrap gap-4">
-          <Button to="/projects">
-            View Projects <ArrowRight size={16} />
+          <Button to="/work">
+            See Our Work <ArrowRight size={16} />
           </Button>
           <Button to="/contact" variant="outline">
-            <Phone size={15} /> Free Consultation
+            <Phone size={15} /> Book a Site Visit
           </Button>
         </div>
 

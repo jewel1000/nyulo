@@ -14,9 +14,9 @@ export default function ServicesPreview() {
     <section className="bg-ink-900/40 py-24">
       <Container>
         <SectionHeading
-          eyebrow="Our Expertise"
-          title="What We Do Best"
-          subtitle="Five integrated services, one accountable team — from the first sketch to turnkey handover."
+          eyebrow="What We Do"
+          title="Six Ways We Can Help"
+          subtitle="From a single wardrobe to a full office floor — designed, made and installed by one team."
         />
         {loading && <Spinner />}
         {error && <ErrorState error={error} onRetry={refetch} />}

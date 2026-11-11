@@ -40,7 +40,7 @@ export default function Footer() {
 
         {/* Quick links */}
         <div>
-          <h3 className="text-sm font-semibold uppercase tracking-widest text-brand-400">Explore</h3>
+          <h3 className="text-sm font-semibold uppercase tracking-widest text-brand-400">Pages</h3>
           <ul className="mt-4 space-y-2.5">
             {NAV_LINKS.map((link) => (
               <li key={link.to}>
@@ -54,19 +54,20 @@ export default function Footer() {
 
         {/* Services */}
         <div>
-          <h3 className="text-sm font-semibold uppercase tracking-widest text-brand-400">Services</h3>
+          <h3 className="text-sm font-semibold uppercase tracking-widest text-brand-400">What We Do</h3>
           <ul className="mt-4 space-y-2.5 text-sm text-ink-300">
-            <li><Link to="/services/residential-interiors" className="transition hover:text-cream-50">Residential Interiors</Link></li>
-            <li><Link to="/services/commercial-office-interiors" className="transition hover:text-cream-50">Commercial &amp; Office</Link></li>
-            <li><Link to="/services/3d-visualization" className="transition hover:text-cream-50">3D Visualization</Link></li>
-            <li><Link to="/services/building-design-construction" className="transition hover:text-cream-50">Building Design &amp; Construction</Link></li>
-            <li><Link to="/services/landscape-design" className="transition hover:text-cream-50">Landscape Design</Link></li>
+            <li><Link to="/services/home-interiors" className="transition hover:text-cream-50">Home Interiors</Link></li>
+            <li><Link to="/services/modular-kitchens-wardrobes" className="transition hover:text-cream-50">Kitchens &amp; Wardrobes</Link></li>
+            <li><Link to="/services/workspace-design" className="transition hover:text-cream-50">Workspace Design</Link></li>
+            <li><Link to="/services/restaurant-retail-interiors" className="transition hover:text-cream-50">Restaurant &amp; Retail</Link></li>
+            <li><Link to="/services/custom-furniture" className="transition hover:text-cream-50">Custom Furniture</Link></li>
+            <li><Link to="/services/renovation-makeovers" className="transition hover:text-cream-50">Renovation &amp; Makeovers</Link></li>
           </ul>
         </div>
 
         {/* Contact */}
         <div>
-          <h3 className="text-sm font-semibold uppercase tracking-widest text-brand-400">Contact</h3>
+          <h3 className="text-sm font-semibold uppercase tracking-widest text-brand-400">Visit or Call</h3>
           <ul className="mt-4 space-y-3 text-sm text-ink-300">
             <li className="flex items-start gap-3">
               <MapPin size={16} className="mt-0.5 shrink-0 text-brand-400" />

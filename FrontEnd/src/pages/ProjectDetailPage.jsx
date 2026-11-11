@@ -34,8 +34,8 @@ export default function ProjectDetailPage() {
         <img src={project.coverImage} alt="" aria-hidden="true" className="absolute inset-0 h-full w-full object-cover" />
         <div className="absolute inset-0 bg-gradient-to-t from-ink-950 via-ink-950/70 to-ink-950/40" />
         <Container className="relative">
-          <Link to="/projects" className="mb-6 inline-flex items-center gap-2 text-sm text-cream-100/80 transition hover:text-brand-400">
-            <ArrowLeft size={15} /> All projects
+          <Link to="/work" className="mb-6 inline-flex items-center gap-2 text-sm text-cream-100/80 transition hover:text-brand-400">
+            <ArrowLeft size={15} /> Back to our work
           </Link>
           <span className="block w-fit rounded-full border border-brand-500/40 bg-ink-950/60 px-4 py-1 text-xs font-semibold uppercase tracking-wider text-brand-300 backdrop-blur">
             {project.category}
@@ -91,7 +91,7 @@ export default function ProjectDetailPage() {
                       </li>
                     ))}
                   </ul>
-                  <Button to="/contact" className="mt-7 w-full">Start Your Project</Button>
+                  <Button to="/contact" className="mt-7 w-full">Plan a Similar Project</Button>
                 </div>
               </Reveal>
             )}

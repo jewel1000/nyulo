@@ -9,6 +9,11 @@ import {
   Gem,
   KeyRound,
   Sparkles,
+  CookingPot,
+  Briefcase,
+  Store,
+  Armchair,
+  Hammer,
 } from 'lucide-react';
 
 /** Maps icon slugs stored in the database/constants to lucide components. */
@@ -23,6 +28,11 @@ const ICONS = {
   gem: Gem,
   key: KeyRound,
   sparkles: Sparkles,
+  kitchen: CookingPot,
+  briefcase: Briefcase,
+  store: Store,
+  armchair: Armchair,
+  hammer: Hammer,
 };
 
 export const getIcon = (name) => ICONS[name] || Sparkles;

@@ -10,9 +10,9 @@ export default function ProcessPreview() {
     <section className="py-24">
       <Container>
         <SectionHeading
-          eyebrow="Our Working Process"
-          title="From First Sketch to Final Handover"
-          subtitle="A transparent six-phase process keeps you informed and in control at every milestone."
+          eyebrow="How We Work"
+          title="Six Steps, One Point of Contact"
+          subtitle="You always know what happens next, how long it takes and who to call."
         />
         <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {PROCESS_STEPS.map((phase, index) => (
@@ -31,10 +31,10 @@ export default function ProcessPreview() {
           ))}
         </div>
         <div className="mt-12 flex justify-center gap-4">
-          <Button to="/process" variant="outline">
-            Our Full Process <ArrowRight size={16} />
+          <Button to="/how-we-work" variant="outline">
+            See Each Step in Detail <ArrowRight size={16} />
           </Button>
-          <Button to="/services">All Services</Button>
+          <Button to="/budget-planner">Plan Your Budget</Button>
         </div>
       </Container>
     </section>

@@ -8,8 +8,8 @@ export default function ProcessPage() {
   return (
     <>
       <PageHero
-        eyebrow="Our Working Process"
-        title="Six Phases. Zero Surprises."
+        eyebrow="How We Work"
+        title="From First Call to Moving In"
         subtitle="Every project follows the same transparent path — so you always know what happens next, how long it takes and what it costs."
       />
       <section className="py-24">

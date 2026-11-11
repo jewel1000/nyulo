@@ -15,20 +15,20 @@ export const COMPANY = {
 
 export const NAV_LINKS = [
   { label: 'Home', to: '/' },
-  { label: 'About', to: '/about' },
   { label: 'Services', to: '/services' },
-  { label: 'Projects', to: '/projects' },
-  { label: 'Process', to: '/process' },
-  { label: 'Testimonials', to: '/testimonials' },
-  { label: 'Blog', to: '/blog' },
+  { label: 'Our Work', to: '/work' },
+  { label: 'How We Work', to: '/how-we-work' },
+  { label: 'Reviews', to: '/reviews' },
+  { label: 'Journal', to: '/journal' },
+  { label: 'About', to: '/about' },
   { label: 'Contact', to: '/contact' },
 ];
 
 export const STATS = [
-  { value: 150, suffix: '+', label: 'Projects Delivered' },
-  { value: 320, suffix: '+', label: 'Happy Clients' },
-  { value: 9, suffix: '+', label: 'Years of Experience' },
-  { value: 96, suffix: '%', label: 'Client Satisfaction' },
+  { value: 150, suffix: '+', label: 'Spaces Completed' },
+  { value: 9, suffix: '', label: 'Years in Mirpur' },
+  { value: 4, suffix: ' days', label: 'Average Kitchen Install' },
+  { value: 6, suffix: '', label: 'Services Under One Roof' },
 ];
 
 export const PROCESS_STEPS = [
@@ -99,21 +99,6 @@ export const CORE_VALUES = [
   },
 ];
 
-export const CLIENT_NAMES = [
-  'Horizon Group',
-  'NovaTech Ltd.',
-  'Aurora Lifestyle',
-  'Maison Hospitality',
-  'Meridian Bank',
-  'Skyline Developers',
-  'GreenLeaf Foods',
-  'Prime Logistics',
-  'Orbit Telecom',
-  'Crestview Hotels',
-  'Zenith Pharma',
-  'UrbanEdge Realty',
-];
-
 export const TEAM = [
   {
     name: 'Arif Chowdhury',
@@ -132,7 +117,7 @@ export const TEAM = [
   },
   {
     name: 'Nabila Karim',
-    role: 'Lead, 3D Visualization',
+    role: 'Lead, Visualization & Drawings',
     photo: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=600&q=80',
   },
 ];
@@ -140,8 +125,8 @@ export const TEAM = [
 export const PROJECT_CATEGORIES = [
   'All',
   'Residential',
-  'Duplex & Triplex',
-  'Office',
-  'Commercial & Retail',
-  'Restaurant & Café',
+  'Penthouse & Duplex',
+  'Kitchen & Wardrobe',
+  'Workspace',
+  'Hospitality & Retail',
 ];

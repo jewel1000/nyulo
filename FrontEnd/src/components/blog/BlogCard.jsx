@@ -5,7 +5,7 @@ import { formatDate } from '../../utils/format.js';
 export default function BlogCard({ blog }) {
   return (
     <Link
-      to={`/blog/${blog.slug}`}
+      to={`/journal/${blog.slug}`}
       className="group flex h-full flex-col overflow-hidden rounded-2xl border border-white/5 bg-ink-900 transition hover:border-brand-500/30"
     >
       <div className="aspect-[16/10] overflow-hidden">

@@ -15,8 +15,8 @@ export default function BlogPreview() {
     <section className="py-24">
       <Container>
         <SectionHeading
-          eyebrow="Latest Insights"
-          title="From Our Design Journal"
+          eyebrow="Journal"
+          title="Ideas & Advice for Your Next Project"
         />
         {loading && <Spinner />}
         {blogs && (
@@ -29,8 +29,8 @@ export default function BlogPreview() {
           </div>
         )}
         <div className="mt-12 flex justify-center">
-          <Button to="/blog" variant="outline">
-            Visit the Blog <ArrowRight size={16} />
+          <Button to="/journal" variant="outline">
+            Read the Journal <ArrowRight size={16} />
           </Button>
         </div>
       </Container>

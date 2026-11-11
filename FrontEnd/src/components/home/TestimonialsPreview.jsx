@@ -18,8 +18,8 @@ export default function TestimonialsPreview() {
     <section className="bg-ink-900/40 py-24">
       <Container>
         <SectionHeading
-          eyebrow="Client Testimonials"
-          title="What Our Clients Say"
+          eyebrow="Reviews"
+          title="Homeowners & Businesses on Working With Us"
         />
         {loading && <Spinner />}
         {testimonials && (
@@ -32,8 +32,8 @@ export default function TestimonialsPreview() {
           </div>
         )}
         <div className="mt-12 flex justify-center">
-          <Button to="/testimonials" variant="outline">
-            All Testimonials <ArrowRight size={16} />
+          <Button to="/reviews" variant="outline">
+            Read More Reviews <ArrowRight size={16} />
           </Button>
         </div>
       </Container>

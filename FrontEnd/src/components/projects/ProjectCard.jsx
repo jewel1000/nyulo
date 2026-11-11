@@ -4,7 +4,7 @@ import { MapPin, ArrowUpRight } from 'lucide-react';
 export default function ProjectCard({ project }) {
   return (
     <Link
-      to={`/projects/${project.slug}`}
+      to={`/work/${project.slug}`}
       className="group relative block overflow-hidden rounded-2xl border border-white/5 bg-ink-900"
     >
       <div className="aspect-[4/3] overflow-hidden">

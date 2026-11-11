@@ -11,7 +11,7 @@ import ProjectCard from '../projects/ProjectCard.jsx';
 
 export default function PortfolioPreview() {
   const { data: projects, loading, error, refetch } = useFetch(
-    () => fetchProjects({ featured: true, limit: 6 }),
+    () => fetchProjects({ featured: true, limit: 4 }),
     []
   );
 
@@ -19,14 +19,14 @@ export default function PortfolioPreview() {
     <section className="py-24">
       <Container>
         <SectionHeading
-          eyebrow="Our Portfolio"
-          title="Explore Our Work"
-          subtitle="A selection of recent residential, commercial and hospitality projects delivered across Dhaka."
+          eyebrow="Recent Work"
+          title="A Few Spaces We’re Proud Of"
+          subtitle="Kitchens, penthouses, offices and cafés — designed in our studio and built by our own team."
         />
         {loading && <Spinner />}
         {error && <ErrorState error={error} onRetry={refetch} />}
         {projects && (
-          <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-14 grid gap-6 md:grid-cols-2">
             {projects.map((project, index) => (
               <Reveal key={project.slug} delay={index * 80}>
                 <ProjectCard project={project} />
@@ -35,8 +35,8 @@ export default function PortfolioPreview() {
           </div>
         )}
         <div className="mt-12 flex justify-center">
-          <Button to="/projects" variant="outline">
-            View All Projects <ArrowRight size={16} />
+          <Button to="/work" variant="outline">
+            Browse All Work <ArrowRight size={16} />
           </Button>
         </div>
       </Container>
