@@ -3,7 +3,7 @@ import { env } from './index.js';
 import logger from '../utils/logger.js';
 
 /** Collections stored in PostgreSQL, one table each. */
-export const PG_TABLES = ['projects', 'services', 'testimonials', 'blogs', 'contacts', 'estimates'];
+export const PG_TABLES = ['projects', 'services', 'testimonials', 'blogs', 'contacts', 'estimates', 'settings'];
 
 let pool = null;
 let ready = false;

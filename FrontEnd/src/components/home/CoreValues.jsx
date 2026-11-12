@@ -1,10 +1,11 @@
 import Container from '../common/Container.jsx';
 import SectionHeading from '../common/SectionHeading.jsx';
 import Reveal from '../common/Reveal.jsx';
-import { CORE_VALUES } from '../../constants/index.js';
+import { useSite } from '../../context/SiteContext.jsx';
 import { getIcon } from '../../utils/iconMap.js';
 
 export default function CoreValues() {
+  const { values: CORE_VALUES } = useSite();
   return (
     <section className="bg-ink-900/40 py-24">
       <Container>
@@ -16,7 +17,7 @@ export default function CoreValues() {
           {CORE_VALUES.map((value, index) => {
             const Icon = getIcon(value.icon);
             return (
-              <Reveal key={value.title} delay={index * 80}>
+              <Reveal key={`${value.title}-${index}`} delay={(index % 4) * 80}>
                 <div className="flex h-full flex-col items-center rounded-2xl border border-black/10 bg-ink-950 p-8 text-center">
                   <div className="flex h-14 w-14 items-center justify-center rounded-full bg-brand-500/10 text-brand-400">
                     <Icon size={24} />

@@ -1,14 +1,11 @@
-import {
-  PROJECT_CATEGORIES,
-  SERVICE_INTERESTS,
-  ESTIMATE_AREA_LIMITS,
-} from '../constants/index.js';
+import { PROJECT_CATEGORIES } from '../constants/index.js';
 
 export const contactSchema = {
   name: { required: true, type: 'string', minLength: 2, maxLength: 120 },
   email: { required: true, type: 'email' },
   phone: { required: true, type: 'string', minLength: 6, maxLength: 20 },
-  serviceInterest: { type: 'string', enum: SERVICE_INTERESTS },
+  // Free text: the options come from the services list, which admins can edit.
+  serviceInterest: { type: 'string', maxLength: 120 },
   subject: { type: 'string', maxLength: 200 },
   message: { required: true, type: 'string', minLength: 10, maxLength: 3000 },
 };
@@ -16,12 +13,8 @@ export const contactSchema = {
 export const estimateCalcSchema = {
   spaceType: { required: true, type: 'string' },
   packageKey: { required: true, type: 'string' },
-  areaSqft: {
-    required: true,
-    type: 'number',
-    min: ESTIMATE_AREA_LIMITS.min,
-    max: ESTIMATE_AREA_LIMITS.max,
-  },
+  // Range limits live in the editable pricing settings and are enforced by the service.
+  areaSqft: { required: true, type: 'number', min: 1 },
 };
 
 export const estimateLeadSchema = {

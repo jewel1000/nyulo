@@ -2,6 +2,9 @@ node_modules/
 .env
 .env.local
 .env.production
+# The frontends' production settings hold public URLs only, so they are tracked.
+!FrontEnd/.env.production
+!AdminFrontEnd/.env.production
 deploy/packages/
 *.log
 .DS_Store

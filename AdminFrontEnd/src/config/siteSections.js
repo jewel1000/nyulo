@@ -1,0 +1,166 @@
+import { ICON_OPTIONS } from './resources.jsx';
+
+/**
+ * Editable sections of the public site that are not collections.
+ * `kind: 'list'` sections are a single repeating list; the rest are a set of fields.
+ */
+export const SITE_SECTIONS = [
+  {
+    key: 'company',
+    label: 'Company & contact',
+    description: 'Name, phone, email and address. Used in the header, footer and Contact page.',
+    fields: [
+      { name: 'name', label: 'Company name', type: 'text', required: true },
+      { name: 'tagline', label: 'Tagline', type: 'text' },
+      { name: 'phone', label: 'Phone', type: 'text' },
+      { name: 'email', label: 'Email', type: 'text' },
+      { name: 'address', label: 'Address', type: 'text' },
+      { name: 'hours', label: 'Working hours', type: 'text' },
+      { name: 'mapQuery', label: 'Map location', type: 'text', help: 'What the Contact page map searches for, e.g. “East Kazipara, Mirpur, Dhaka”.' },
+      { name: 'footerText', label: 'Footer description', type: 'textarea', rows: 3 },
+      { name: 'founded', label: 'Founded (year)', type: 'number' },
+      { name: 'facebook', label: 'Facebook link', type: 'text', help: 'Leave a link empty to hide its icon.' },
+      { name: 'instagram', label: 'Instagram link', type: 'text' },
+      { name: 'linkedin', label: 'LinkedIn link', type: 'text' },
+      { name: 'youtube', label: 'YouTube link', type: 'text' },
+    ],
+  },
+  {
+    key: 'hero',
+    label: 'Homepage slideshow',
+    description: 'The full-screen slideshow at the top of the homepage and the text shown over it.',
+    fields: [
+      { name: 'eyebrow', label: 'Small line above the headline', type: 'text' },
+      { name: 'title', label: 'Headline', type: 'text', required: true },
+      { name: 'highlight', label: 'Highlighted word(s) after the headline', type: 'text' },
+      { name: 'text', label: 'Paragraph', type: 'textarea', rows: 3 },
+      { name: 'primaryButton', label: 'First button text', type: 'text' },
+      { name: 'secondaryButton', label: 'Second button text', type: 'text' },
+      {
+        name: 'slides',
+        label: 'Slides',
+        type: 'repeater',
+        addLabel: 'Add slide',
+        itemName: 'Slide',
+        itemLabel: (slide) => slide.label,
+        help: 'Wide photos (at least 1920 px across) look best.',
+        fields: [
+          { name: 'src', label: 'Photo', type: 'image', required: true },
+          { name: 'label', label: 'Caption', type: 'text' },
+        ],
+      },
+    ],
+  },
+  {
+    key: 'stats',
+    kind: 'list',
+    label: 'Numbers bar',
+    description: 'The row of headline numbers on the homepage and About page.',
+    addLabel: 'Add number',
+    itemLabel: (stat) => `${stat.value ?? ''}${stat.suffix ?? ''} ${stat.label ?? ''}`,
+    fields: [
+      { name: 'value', label: 'Number', type: 'number', required: true },
+      { name: 'suffix', label: 'After the number', type: 'text', help: 'e.g. + or % or “ days”' },
+      { name: 'label', label: 'Label', type: 'text', required: true },
+    ],
+  },
+  {
+    key: 'process',
+    kind: 'list',
+    label: 'How we work',
+    description: 'The steps shown on the homepage and the “How We Work” page, in this order.',
+    addLabel: 'Add step',
+    itemLabel: (step) => step.title,
+    fields: [
+      { name: 'title', label: 'Step name', type: 'text', required: true },
+      { name: 'duration', label: 'How long it takes', type: 'text' },
+      { name: 'description', label: 'Description', type: 'textarea', rows: 3 },
+    ],
+  },
+  {
+    key: 'values',
+    kind: 'list',
+    label: 'Why choose us',
+    description: 'The “What You Can Count On” cards.',
+    addLabel: 'Add card',
+    itemLabel: (card) => card.title,
+    fields: [
+      { name: 'title', label: 'Title', type: 'text', required: true },
+      { name: 'description', label: 'Description', type: 'textarea', rows: 3 },
+      { name: 'icon', label: 'Icon', type: 'select', options: ICON_OPTIONS, required: true },
+    ],
+  },
+  {
+    key: 'team',
+    kind: 'list',
+    label: 'Team',
+    description: 'People shown on the About page.',
+    addLabel: 'Add person',
+    itemLabel: (person) => person.name,
+    fields: [
+      { name: 'name', label: 'Name', type: 'text', required: true },
+      { name: 'role', label: 'Role', type: 'text' },
+      { name: 'photo', label: 'Photo', type: 'image' },
+    ],
+  },
+  {
+    key: 'about',
+    label: 'About page',
+    description: 'Headings, story and photo on the About page.',
+    fields: [
+      { name: 'heroTitle', label: 'Page title', type: 'text', required: true },
+      { name: 'heroSubtitle', label: 'Line under the title', type: 'text' },
+      { name: 'storyTitle', label: 'Story heading', type: 'text' },
+      { name: 'paragraphs', label: 'Story paragraphs', type: 'paragraphs' },
+      { name: 'image', label: 'Story photo', type: 'image' },
+      { name: 'badgeValue', label: 'Badge number', type: 'text', help: 'The gold badge on the photo, e.g. 9+. Leave empty to hide it.' },
+      { name: 'badgeLabel', label: 'Badge label', type: 'text' },
+      { name: 'teamTitle', label: 'Team heading', type: 'text' },
+      { name: 'teamSubtitle', label: 'Line under the team heading', type: 'text' },
+    ],
+  },
+  {
+    key: 'cta',
+    label: 'Call-to-action banner',
+    description: 'The banner near the bottom of most pages.',
+    fields: [
+      { name: 'title', label: 'Headline', type: 'text', required: true },
+      { name: 'highlight', label: 'Highlighted word(s) after the headline', type: 'text' },
+      { name: 'text', label: 'Paragraph', type: 'textarea', rows: 3 },
+      { name: 'image', label: 'Background photo', type: 'image' },
+    ],
+  },
+  {
+    key: 'pricing',
+    label: 'Budget Planner prices',
+    description: 'Rates used by the Budget Planner. Estimate = area × package rate × space multiplier.',
+    fields: [
+      { name: 'areaMin', label: 'Smallest area allowed (sqft)', type: 'number', required: true },
+      { name: 'areaMax', label: 'Largest area allowed (sqft)', type: 'number', required: true },
+      {
+        name: 'packages',
+        label: 'Packages',
+        type: 'repeater',
+        addLabel: 'Add package',
+        itemLabel: (item) => `${item.label ?? ''} — ৳${item.ratePerSqft ?? ''}/sqft`,
+        fields: [
+          { name: 'label', label: 'Name', type: 'text', required: true },
+          { name: 'key', label: 'Code', type: 'text', required: true, help: 'A short unique word without spaces, e.g. premium. Do not change it once in use.' },
+          { name: 'ratePerSqft', label: 'Rate per sqft (৳)', type: 'number', required: true },
+        ],
+      },
+      {
+        name: 'spaceTypes',
+        label: 'Space types',
+        type: 'repeater',
+        addLabel: 'Add space type',
+        itemLabel: (item) => `${item.label ?? ''} — ×${item.multiplier ?? ''}`,
+        fields: [
+          { name: 'label', label: 'Name', type: 'text', required: true },
+          { name: 'key', label: 'Code', type: 'text', required: true, help: 'A short unique word without spaces, e.g. office.' },
+          { name: 'multiplier', label: 'Multiplier', type: 'number', required: true, help: '1 = no change, 1.15 = 15% more, 0.9 = 10% less.' },
+        ],
+      },
+    ],
+  },
+];

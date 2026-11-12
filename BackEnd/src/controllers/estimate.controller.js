@@ -4,11 +4,11 @@ import { parsePagination } from '../utils/pagination.js';
 import * as estimateService from '../services/estimate.service.js';
 
 export const getEstimatorConfig = asyncHandler(async (_req, res) => {
-  ApiResponse.send(res, 200, estimateService.getEstimatorConfig(), 'Estimator config fetched');
+  ApiResponse.send(res, 200, await estimateService.getEstimatorConfig(), 'Estimator config fetched');
 });
 
 export const calculateEstimate = asyncHandler(async (req, res) => {
-  const quote = estimateService.calculateEstimate(req.body);
+  const quote = await estimateService.calculateEstimate(req.body);
   ApiResponse.send(res, 200, quote, 'Estimate calculated');
 });
 

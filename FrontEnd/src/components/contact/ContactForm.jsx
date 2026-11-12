@@ -2,27 +2,22 @@ import { useState } from 'react';
 import { Send, CheckCircle2 } from 'lucide-react';
 import { TextInput, TextArea, Select } from '../common/FormField.jsx';
 import { submitContact } from '../../api/contact.api.js';
-
-const SERVICE_OPTIONS = [
-  'Home Interiors',
-  'Modular Kitchens & Wardrobes',
-  'Workspace Design',
-  'Restaurant & Retail Interiors',
-  'Custom Furniture',
-  'Renovation & Makeovers',
-  'Other',
-];
+import useFetch from '../../hooks/useFetch.js';
+import { fetchServices } from '../../api/services.api.js';
 
 const INITIAL_FORM = {
   name: '',
   email: '',
   phone: '',
-  serviceInterest: 'Home Interiors',
+  serviceInterest: '',
   subject: '',
   message: '',
 };
 
 export default function ContactForm() {
+  // Options follow the services list, so they stay right when services are edited.
+  const { data: services } = useFetch(fetchServices, []);
+  const SERVICE_OPTIONS = [...(services || []).map((service) => service.title), 'Other'];
   const [form, setForm] = useState(INITIAL_FORM);
   const [status, setStatus] = useState({ state: 'idle', message: '' });
 
@@ -69,6 +64,7 @@ export default function ContactForm() {
       <div className="grid gap-5 sm:grid-cols-2">
         <TextInput label="Email" required type="email" placeholder="you@example.com" value={form.email} onChange={update('email')} />
         <Select label="What do you need?" value={form.serviceInterest} onChange={update('serviceInterest')}>
+          <option value="">Select a service</option>
           {SERVICE_OPTIONS.map((option) => (
             <option key={option} value={option}>{option}</option>
           ))}

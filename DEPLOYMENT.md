@@ -6,9 +6,11 @@ Deployed on **Namecheap shared hosting** — cPanel user `nyuldgvn`, LiteSpeed, 
 
 | Piece | Where |
 |---|---|
-| Frontend | `/home/nyuldgvn/public_html` → https://nyulo.com |
-| Backend | `/home/nyuldgvn/nyulo-api`, Node 22 via the CloudLinux selector, mounted at `/api` |
-| API base | https://nyulo.com/api/v1 |
+| Public website | `/home/nyuldgvn/public_html` → https://nyulo.com |
+| Public API | `/home/nyuldgvn/nyulo-api`, Node 22 via the CloudLinux selector, mounted at `/api` → https://nyulo.com/api/v1 |
+| Admin panel | `/home/nyuldgvn/public_html/admin` → https://nyulo.com/admin |
+| Admin API | `/home/nyuldgvn/nyulo-admin-api`, Node 22, mounted at `/admin-api` → https://nyulo.com/admin-api/v1 |
+| Uploaded photos | `/home/nyuldgvn/public_html/uploads` → https://nyulo.com/uploads |
 | Database | PostgreSQL 10 on the same host — database `nyuldgvn_nyulo`, user `nyuldgvn_app` |
 
 The Namecheap parking page that was there before is preserved in `~/_backup-parking-page`.
@@ -16,17 +18,35 @@ The Namecheap parking page that was there before is preserved in `~/_backup-park
 ### Redeploying
 
 ```bash
-cd FrontEnd && npm run build && cd ..
+(cd FrontEnd && npm run build)
+(cd AdminFrontEnd && npm run build)
 cd deploy && npm install                      # first time only
 CP_PASS='your-cpanel-password' npm run deploy
 ```
 
-`npm run deploy:frontend` / `npm run deploy:backend` deploy one side only. The script uploads over SFTP, reinstalls backend dependencies and restarts the app.
+That deploys all four apps. To deploy one, use `npm run deploy:frontend`, `deploy:backend`, `deploy:admin` or `deploy:admin-api`. The script uploads over SFTP and, for the two APIs, reinstalls dependencies and restarts the app.
+
+Redeploying never touches the database, the uploaded photos, or the admin account.
 
 Two gotchas, both hit during the first deploy:
 
 - **Don't deploy via zip.** PowerShell's `Compress-Archive` writes backslash path separators and Linux `unzip` rejects the archive. The script uploads files directly instead.
 - **`install-modules` reports a false failure.** The selector compares the site's content type before and after installing; the API correctly changing from `text/html` to `application/json` trips that check. The script passes `--skip-web-check`.
+
+### Admin panel
+
+Sign in at https://nyulo.com/admin with the admin username and password. The password can be changed under **Password** in the panel. Sign-in is limited to 10 attempts per 15 minutes.
+
+The admin API was registered once with:
+
+```bash
+cloudlinux-selector create --json --interpreter nodejs --app-root nyulo-admin-api --app-uri admin-api \
+  --version 22.23.4 --app-mode production --startup-file src/server.js --env-vars '{ ... }'
+```
+
+Its environment variables (cPanel → **Setup Node.js App** → `nyulo-admin-api`) are `NODE_ENV`, `CLIENT_URL`, `DATABASE_URL` (same database as the public API), `UPLOAD_DIR=/home/nyuldgvn/public_html/uploads` and `UPLOAD_PUBLIC_URL=https://nyulo.com/uploads`.
+
+**Locked out?** There is no password-reset email. Delete the row from the `admins` table (cPanel → phpPgAdmin) and reload the panel: with no admin left it offers to create a new account. Do this only when needed, and create the new account straight away, because until then anyone who opens the panel could.
 
 ### Database
 
@@ -34,14 +54,14 @@ The API stores everything in the hosting account's own PostgreSQL. Each collecti
 
 The connection string lives in the app's `DATABASE_URL` environment variable (cPanel → **Setup Node.js App** → `nyulo-api`). The database password was generated on the server and is stored only there; to connect with another tool, read it from that screen or reset it under cPanel → **PostgreSQL Databases**.
 
-**Reading leads.** Contact-form submissions and saved cost estimates are in the `contacts` and `estimates` tables. Browse them in cPanel → **phpPgAdmin**, or over the API:
+**Reading leads.** Contact messages and budget requests appear in the admin panel under **Leads**. They are stored in the `contacts` and `estimates` tables, which can also be browsed in cPanel → **phpPgAdmin** or read over the public API with the API key:
 
 ```bash
 curl -H "x-api-key: YOUR_ADMIN_API_KEY" https://nyulo.com/api/v1/contacts
 curl -H "x-api-key: YOUR_ADMIN_API_KEY" https://nyulo.com/api/v1/estimates
 ```
 
-**Changing site content.** Editing `BackEnd/src/seed/data.js` no longer changes the live site on its own, because seeding only runs against an empty database. Either edit the rows directly, use the admin API (`POST`/`PATCH`/`DELETE` with the API key), or empty the content tables (`TRUNCATE projects, services, testimonials, blogs;`) and restart so they re-seed. Never truncate `contacts` or `estimates` — those are real leads.
+**Changing site content.** Use the admin panel. Editing `BackEnd/src/seed/data.js` or `siteDefaults.js` does not change the live site on its own: seed data is only loaded into an empty database, and a site section saved from the panel overrides its default. The tables `settings` (saved site sections) and `admins` (admin accounts) sit alongside the content tables.
 
 If `DATABASE_URL` is unset or PostgreSQL is unreachable, the API falls back to MongoDB (`MONGODB_URI`) and then to seed data plus JSON files under `BackEnd/data/`, so it keeps serving either way. `GET /api/v1/health` reports which store is active.
 

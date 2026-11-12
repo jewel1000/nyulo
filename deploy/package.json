@@ -6,7 +6,9 @@
   "scripts": {
     "deploy": "node deploy.mjs",
     "deploy:frontend": "node deploy.mjs frontend",
-    "deploy:backend": "node deploy.mjs backend"
+    "deploy:backend": "node deploy.mjs backend",
+    "deploy:admin": "node deploy.mjs admin",
+    "deploy:admin-api": "node deploy.mjs admin-api"
   },
   "dependencies": {
     "ssh2": "^1.16.0"

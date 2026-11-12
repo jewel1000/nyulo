@@ -6,6 +6,9 @@ import blogRoutes from './blog.routes.js';
 import contactRoutes from './contact.routes.js';
 import estimateRoutes from './estimate.routes.js';
 import { getStorageMode } from '../config/db.js';
+import asyncHandler from '../utils/asyncHandler.js';
+import ApiResponse from '../utils/ApiResponse.js';
+import { getSiteSettings } from '../services/settings.service.js';
 
 const router = Router();
 
@@ -17,6 +20,14 @@ router.get('/health', (_req, res) => {
     timestamp: new Date().toISOString(),
   });
 });
+
+// Site-wide content (company details, hero, stats, …) edited in the admin panel.
+router.get(
+  '/settings',
+  asyncHandler(async (_req, res) => {
+    ApiResponse.send(res, 200, await getSiteSettings(), 'Site settings fetched');
+  })
+);
 
 router.use('/projects', projectRoutes);
 router.use('/services', serviceRoutes);

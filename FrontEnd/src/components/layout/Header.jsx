@@ -1,10 +1,12 @@
 import { useEffect, useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { Menu, X, Calculator } from 'lucide-react';
-import { NAV_LINKS, COMPANY } from '../../constants/index.js';
+import { NAV_LINKS } from '../../constants/index.js';
+import { useSite } from '../../context/SiteContext.jsx';
 import Logo from '../common/Logo.jsx';
 
 export default function Header() {
+  const { company: COMPANY } = useSite();
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
 

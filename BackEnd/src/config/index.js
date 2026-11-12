@@ -14,7 +14,8 @@ export const env = {
   // postgres://user:password@host:5432/dbname — takes priority over MongoDB when set
   databaseUrl: process.env.DATABASE_URL || '',
   mongoUri: process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/nyulo_interior',
-  clientUrl: process.env.CLIENT_URL || 'http://localhost:5173',
+  // Main site and admin panel dev servers
+  clientUrl: process.env.CLIENT_URL || 'http://localhost:5173,http://localhost:5174',
   adminApiKey: process.env.ADMIN_API_KEY || '',
   // Where leads are stored when MongoDB is not configured. Lives outside src/
   // so a redeploy never touches it.

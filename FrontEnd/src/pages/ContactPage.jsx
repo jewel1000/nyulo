@@ -3,16 +3,19 @@ import PageHero from '../components/common/PageHero.jsx';
 import Container from '../components/common/Container.jsx';
 import Reveal from '../components/common/Reveal.jsx';
 import ContactForm from '../components/contact/ContactForm.jsx';
-import { COMPANY } from '../constants/index.js';
-
-const DETAILS = [
-  { icon: MapPin, label: 'Studio Address', value: COMPANY.address },
-  { icon: Phone, label: 'Phone', value: COMPANY.phone, href: `tel:${COMPANY.phone.replace(/\s/g, '')}` },
-  { icon: Mail, label: 'Email', value: COMPANY.email, href: `mailto:${COMPANY.email}` },
-  { icon: Clock, label: 'Working Hours', value: 'Sat–Thu, 10:00 AM – 7:00 PM' },
-];
+import { useSite } from '../context/SiteContext.jsx';
 
 export default function ContactPage() {
+  const { company: COMPANY } = useSite();
+
+  const DETAILS = [
+    { icon: MapPin, label: 'Studio Address', value: COMPANY.address },
+    { icon: Phone, label: 'Phone', value: COMPANY.phone, href: `tel:${String(COMPANY.phone).replace(/\s/g, '')}` },
+    { icon: Mail, label: 'Email', value: COMPANY.email, href: `mailto:${COMPANY.email}` },
+    { icon: Clock, label: 'Working Hours', value: COMPANY.hours },
+  ].filter((detail) => detail.value);
+  const mapQuery = encodeURIComponent(COMPANY.mapQuery || COMPANY.address);
+
   return (
     <>
       <PageHero
@@ -44,7 +47,7 @@ export default function ContactPage() {
             <div className="overflow-hidden rounded-2xl border border-black/10">
               <iframe
                 title="Studio location"
-                src="https://www.google.com/maps?q=East+Kazipara,+Mirpur,+Dhaka&output=embed"
+                src={`https://www.google.com/maps?q=${mapQuery}&output=embed`}
                 className="h-64 w-full"
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"

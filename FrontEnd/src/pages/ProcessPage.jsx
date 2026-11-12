@@ -2,9 +2,10 @@ import PageHero from '../components/common/PageHero.jsx';
 import Container from '../components/common/Container.jsx';
 import Reveal from '../components/common/Reveal.jsx';
 import CtaBanner from '../components/home/CtaBanner.jsx';
-import { PROCESS_STEPS } from '../constants/index.js';
+import { useSite } from '../context/SiteContext.jsx';
 
 export default function ProcessPage() {
+  const { process: PROCESS_STEPS } = useSite();
   return (
     <>
       <PageHero
@@ -16,7 +17,7 @@ export default function ProcessPage() {
         <Container className="max-w-4xl">
           <ol className="relative space-y-12 border-l border-black/15 pl-10">
             {PROCESS_STEPS.map((phase, index) => (
-              <Reveal key={phase.step} delay={index * 60}>
+              <Reveal key={`${phase.title}-${index}`} delay={(index % 6) * 60}>
                 <li className="relative">
                   <span className="absolute -left-[55px] flex h-8 w-8 items-center justify-center rounded-full bg-brand-500 text-xs font-bold text-ink-950">
                     {index + 1}

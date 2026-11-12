@@ -5,7 +5,7 @@ import logger from '../utils/logger.js';
 const repo = () => getRepository('contact');
 
 export const createContact = async (data) => {
-  const contact = await repo().create(data);
+  const contact = await repo().create({ ...data, status: 'new' });
   // Hook point: send a notification email / Slack message here later.
   logger.info(`New contact request from ${contact.name} <${contact.email}>`);
   return contact;
